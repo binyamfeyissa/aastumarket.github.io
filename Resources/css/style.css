@@ -1,8 +1,14 @@
 * {
-    font: poppins;
-    font-family: poppins;
+    
+    font-family: "Montserrat";
 }
-
+body{
+    max-width:1200px;
+    margin-left:auto;
+    margin-right:auto;
+    background: rgb(229,211,211);
+background: radial-gradient(circle, rgba(229,211,211,1) 0%, rgba(217,222,228,1) 100%);
+}
 
 /* Basic styles for the header */
 header {
@@ -10,11 +16,10 @@ header {
   align-items: center;
   justify-content: space-between;
   padding: 20px;
-  background-color: #f2f2f2;
 }
 
 .logo img {
-  max-width: 100px;
+  max-width: 150px;
 }
 
 .menu ul {
@@ -26,6 +31,23 @@ header {
 
 .menu ul li {
   margin: 0 10px;
+}
+.menu ul li a{
+    color: #15151d;
+  margin: 0 10px;
+    text-decoration: none;
+}
+.menu ul li a:active{
+    color: #f6704d;
+    text-decoration: line-through;
+    text-decoration-color: #f6704d;
+    
+}
+.menu ul li a:hover{
+    color: #f6704d;
+    text-decoration: line-through;
+    text-decoration-color: #f6704d;
+    
 }
 
 .header buttons {
@@ -40,164 +62,293 @@ header {
   color: #fff;
 }
 
-/* Styles for hero section */
-.hero {
-    height: 80vh;
-    width: 100%;
-  display: flex;
-        flex-direction: row;
-    background: #df65;
+.header .buttons{
+    display: flex;
+    gap: 20px;
+}
+.header .buttons button{
+    background-color: #15151d;
+    color: #ffffff;
+    border: none;
+    
+    padding: 10px 10px;
+    border-radius: 100px;
+    font-family: Poppins;
+    font-size: medium;
+}
+.header .buttons svg{
+    width: 15px;
+}
+.header .buttons span{
+    background-color: #15151d;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
 }
 
-.hero-content {
+
+/* Hero */
+.hero{
+    display: flex;
+    flex-direction: row;
+    height: 80vh;
+}
+.hero-text-div{
+    width: 50%;
+    padding: 50px;
     display: flex;
     flex-direction: column;
-  width: 50%;
-  padding: 50px;
-}
-
-.hero-text {
-  width: 50%;
-    display: flex;
-        flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
 }
-
-.hero-text h1 {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
+.hero-text-div p{
+    line-height: 25px;
 }
-
-.hero-text p {
-  font-size: 1.2rem;
-  margin-bottom: 30px;
-}
-
-.buttons {
-  display: flex;
-}
-
-.buttons a {
-  display: inline-block;
-  padding: 10px 20px;
-  margin-right: 10px;
-  text-decoration: none;
-    background-color: #f6704d;
-  color: #fff;
-        border-radius: 10px 10px 10px 10px;
-}
-
-.buttons a:hover {
-  background-color: #555;
-}
-
-.hero-image {
+.hero-img-div{
     width: 50%;
+    background-image: url(../images/hero-bg.webp);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.hero-img-div2{
+    width: 50%;
+    background-image: url(../images/about-us-img.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.hero-p{
+    font-size: 15px;
+    margin: 20px 0px 0px 0px;
+}
+.hero-text-div h1{
+    font-size: 50px;
+    margin: 0px;
+    color: #15151d;
+    font-weight: 800;
+}
+.hero-btn-div{
     display: flex;
-    align-items: center;
-    align-content: center;
+    flex-direction: row;
+    padding-top: 20px;
+}
+.hero-btn-div a{
+    margin-right: 10px;
 }
 
-.hero-image img {
-    
-   height: 100%;
+.small-title{
+    color: #f6704d;
+    font-size: 15px;
+    margin: 0px 0px 10px 0px;
 }
-
-/*slider style*/
-
-/* Product section styles */
-.products {
-  margin: 50px auto;
-  max-width: 800px;
+.btn{
+    padding: 10px 20px;
+    background-color: #15151d;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    border-radius: 7px;
+    font-weight: 300;
 }
-
-.slider-container {
-  position: relative;
-  overflow: hidden;
-}
-
-.slider {
-  display: flex;
-  transition: transform 0.5s ease; /* Smooth transition for sliding */
-}
-
-.slide {
-    flex: 0 0 calc(100% / 3); /* Display three slides at a time */
-    padding: 20px;
-    margin: 20px;
-    box-shadow: 0 0px 10px rgb(0 0 0 / 0.2);
-    border-radius: 10px 10px 10px 10px;
+.title h2{
     text-align: center;
 }
-
-.slide img {
-  max-width: 250px;
-  height: auto;
-}
-
-.slider-container button {
-  padding: 10px 20px;
-  background-color: #333;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-}
-
-.prev {
-      background-color: #f6704d;
-  color: #fff;
-  left: 10px;
-}
-
-.next {
-      background-color: #f6704d;
-  color: #fff;
-  right: 10px;
+@media screen and (max-width: 992px){
+    .hero-text-div{
+        width: 100%;
+    }
+    .hero-img-div{
+        width: 100%;
+        height: 50vh;
+    }
+    .hero{
+    flex-direction: column;
+    }
 }
 
 
-
-
-/* Add this to your existing CSS or styles.css file */
-
-.about-us {
-  margin: 50px auto;
-  max-width: 800px;
+/* Products */
+.listProducts a{
+    color: unset;
+    text-decoration: none;
+}
+.container{
+    width: 900px;
+    margin: auto;
+    padding-top: 10px;
+    text-align: center;
+}
+.title{
+    font-size: xx-large;
+    padding: 20px 0;
+}
+.listProducts{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+.listProducts .item img{
+    width: 90%;
+    filter: drop-shadow(0 0px 20px #0009);
+}
+.listProducts .item{
+    background-color: #eeeee6;
+    padding: 20px;
+    border-radius: 20px;
+}
+.listProducts .item h2{
+    font-size: x-large;
+    font-weight: 500;
+}
+.listProducts .item .price{
+    font-size: large;
 }
 
-.about-content {
-  display: flex;
+@media screen and (max-width: 992px){
+    .listProducts{
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+}
+@media screen and (max-width: 768px){
+    .listProducts{
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
-.about-image {
-  flex: 0 0 50%; /* Half width for the image column */
+
+/* slider */
+
+
+
+
+
+
+
+
+
+.scrollProducts{
+    display: flex;
+    width:max-content;
+    
+}
+.scrollProducts .item img{
+    width: 90%;
+    filter: drop-shadow(0 0px 20px #0009);
+}
+.scrollProducts .item{
+    background-color: #eeeee6;
+    padding: 20px;
+    width: 245px;
+    border-radius: 20px;
+    overflow: hidden;
+    transition: 0.5s;
+    margin:10px;
+    scroll-snap-align: start;
+    
+}
+.scrollProducts .item h2{
+    font-size: x-large;
+    font-weight: 500;
+}
+.scrollProducts .item .price{
+    font-size: large;
+}
+.scrollProducts a{
+    color: unset;
+    text-decoration: none;
+}
+.slider{
+    max-width: 1200px;
+    margin: auto;
+    padding-top: 10px;
+    text-align: center;
+    overflow: auto;
+    margin:0px auto 50px;
+    scroll-behavior: smooth;
+    scroll-snap-type: both;
+}
+.slider::-webkit-scrollbar{
+    display: none;
 }
 
-.about-image img {
-  max-width: 100%;
-  height: auto;
+
+
+
+
+
+
+
+
+
+
+
+.direction{
+    text-align: center;
+}
+.direction button{
+    font-family: cursive;
+    font-weight: bold;
+    background-color: #ffffff44;
+    border:none;
+    width:50px;
+    height:50px;
+    border-radius: 50%;
+    transition: 0.5s;
+    margin:0 10px;
+}
+.direction button:hover{
+    background-color: #ffffff;
+}
+#prev {
+    background-color: #eee;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+#next {
+    background-color: #eee;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    border-radius: 50%;
+    margin-left: 10px;
+}
+#prev svg{
+    width: 15px;
+    color: #555454;
+}
+#next svg{
+    width: 15px;
+    color: #555454;
 }
 
-.about-text {
-  flex: 0 0 50%; /* Half width for the text column */
-  padding: 0 20px;
+@media screen and (max-width: 1024px){
+    .item{
+        width: calc(33.3vw - 20px);
+    }
+    .direction{
+        display: none;
+    }
 }
-
-.about-text h2 {
-  font-size: 2rem;
-  margin-bottom: 15px;
+@media screen and (max-width: 768px){
+    .item{
+        width: calc(50vw - 20px);
+    }
+    .direction{
+        display: none;
+    }
 }
-
-.about-text p {
-  font-size: 1.2rem;
-  margin-bottom: 20px;
+footer{
+    width: 100%;
+    padding: 20px;
 }
-
-.shop-btn {
-  padding: 10px 20px;
-  background-color: #f6704d;
-  color: #fff;
-  border: none;
-  cursor: pointer;
+footer p{
+    color: #15151d;
+text-align: center;
 }
