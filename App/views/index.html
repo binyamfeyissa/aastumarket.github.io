@@ -1,96 +1,128 @@
 <html lang="en">
     <head>
-        <meta charset="UTF-8"> 
+    <meta charset="UTF-8"> 
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
 	<meta name="author" content="Group 4"> 
 	<meta name="description "
 	content="A better place for you to shop online"> 
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
 	<title>AASTU ONLINE MARKET</title> 
         <link rel="stylesheet" type="text/css" href="../../Resources/css/style.css">
     </head>
     <body>
-        
         <header class="header">
           <div class="logo">
-            <img src="../../Resources/images/logo.png" alt="Logo">
+            <img src="../../Resources/images/logo-dark.png" alt="Logo">
           </div>
           <nav class="menu">
             <ul>
               <li><a href="#">Home</a></li>
               <li><a href="#">About</a></li>
+              <li><a href="./products.html">Products</a></li>
               <li><a href="#">Services</a></li>
               <li><a href="#">Contact</a></li>
             </ul>
           </nav>
           <div class="buttons">
-            <button class="login-btn">Login</button>
-            <button class="signup-btn">Sign Up</button>
-            <button class="cart-btn">Cart</button>
+            <button><span><svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+  </svg></span>
+                
+              </button>
+            <button><span><svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19a9 9 0 1 0 0-18 9 9 0 0 0 0 18Zm0 0a8.949 8.949 0 0 0 4.951-1.488A3.987 3.987 0 0 0 11 14H9a3.987 3.987 0 0 0-3.951 3.512A8.948 8.948 0 0 0 10 19Zm3-11a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
+  </svg></span>
+                </button>
+            <button> 
+                        <span>
+                            <svg class="" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 20">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 15a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm0 0h8m-8 0-1-4m9 4a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-9-4h10l2-7H3m2 7L3 4m0 0-.792-3H1"/>
+                            </svg>
+                        </span>
+                    </button>
           </div>
         </header>
         <section class="hero">
-      <div class="hero-content">
-        <div class="hero-text">
-          <h1>Welcome to Our Store</h1>
-          <p>Discover amazing products and explore our story.</p>
-          <div class="buttons">
-            <a href="#" class="shop-btn">Shop Now</a>
-            <a href="#" class="about-btn">About Us</a>
-          </div>
-        </div>
-      </div>
-      <div class="hero-image">
-        <img src="../../Resources/images/hero.png" alt="Hero Image">
-      </div>
-    </section>
-        <section class="products">
-          <div class="slider-container">
-            <div class="slider">
-              <!-- Slides will be dynamically generated here -->
+            <div class="hero-text-div">
                 
+                <h1>Discover the tools you need to thrive in the classroom and beyond</h1>
+                <p class="hero-p">Shop with confidence knowing you're getting the best quality products. And Everything you need to succeed, delivered to your dorm doorstep.</p>
+                <div class="hero-btn-div">
+                    <a href="#" class="btn">Shop Now</a>
+                    <a href="#" class="btn">About us</a>
+                </div>
             </div>
-            <button class="prev">Prev</button>
-            <button class="next">Next</button>
-          </div>
+            <div class="hero-img-div">
+                    <img>
+                </div>
         </section>
-        <section class="about-us">
-  <div class="about-content">
-    <div class="about-image">
-      <img src="../../Resources/images/img-2.jpg" alt="About Image">
-    </div>
-    <div class="about-text">
-      <h2>About Us</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla convallis libero et felis eleifend ullamcorper.</p>
-      <button class="shop-btn">Shop Now</button>
-    </div>
-  </div>
-</section>
-        <section class="products">
-          <div class="slider-container">
-            <div class="slider">
-              <!-- Slides will be dynamically generated here -->
-            </div>
-            <button class="prev">Prev</button>
-            <button class="next">Next</button>
-          </div>
-        </section>
-        <section class="about-us">
-          <div class="about-content">
-            <div class="about-image">
-              <img src="../../Resources/images/img-2.jpg" alt="About Image">
-            </div>
-            <div class="about-text">
-              <h2>About Us</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla convallis libero et felis eleifend ullamcorper.</p>
-              <button class="shop-btn">Shop Now</button>
-            </div>
-          </div>
-        </section>
+        <div class="title"><h2>PRODUCT TITLE</h2></div>
+        <div class="slider" id="slider">
+                <div class="scrollProducts">
 
-        <script src="../../Resources/js/script.js"></script>
+                </div>
+        </div>
+        <div class="direction">
+                <button id="prev"><svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 8 14">
+    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 1 1.3 6.326a.91.91 0 0 0 0 1.348L7 13"/>
+  </svg></button>
+                <button id="next"><svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 8 14">
+    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 13 5.7-5.326a.909.909 0 0 0 0-1.348L1 1"/>
+  </svg></button>
+            </div>
+        <section class="hero">
+            
+            <div class="hero-img-div2">
+                </div>
+            <div class="hero-text-div">
+                
+                <h1>Let's tell you somethings about us</h1>
+                <p class="hero-p">At AASTU, our aim was to enhance student life. We developed a secure, user-friendly ecommerce platform for easy access to university essentials like merchandise, textbooks, and event tickets. Our website fosters a thriving campus community while showcasing the synergy between technology and education. Explore our creation and experience the seamless blend of convenience and innovation!</p>
+                <div class="hero-btn-div">
+                    <a href="#" class="btn">About us</a>
+                </div>
+            </div>
+        </section>
+        <footer>
+            <p>Copyright @ AASTU ONLINE MARKET, All Rights reserved</p>
+        </footer>
+        <script>
+            document.getElementById('next').onclick = function(){
+    const widthItem = document.querySelector('.item').offsetWidth;
+    document.getElementById('slider').scrollLeft += widthItem;
+}
+document.getElementById('prev').onclick = function(){
+    const widthItem = document.querySelector('.item').offsetWidth;
+    document.getElementById('slider').scrollLeft -= widthItem;
+}
+            //get data from products.json
+            let products = null;
+            fetch('../../Resources/js/Products.json')
+            .then(response => response.json())
+            .then(data => {
+                products =data;
+                console.log(products);
+                addDataToHTML();
+            })
+            //add the data product to html
+            let listProducts = document.querySelector('.scrollProducts');
+            function addDataToHTML(){
+                products.forEach(product => {
+                    //create new element item
+                    let newProduct = document.createElement('a');
+                    newProduct.href = '../../App/views/detail.html?id=' + product.id;
+                    newProduct.classList.add('item');
+                    newProduct.innerHTML = `<img src="${product.image}">
+                            <h2>${product.name}</h2>
+                            <div class="price">${product.price} Birr</div> `;
+
+                    // add this element in listProduct class
+                    listProducts.appendChild(newProduct);
+                })
+            }
+            
+        </script>
+        
     </body>
-
-
-
 </html>
