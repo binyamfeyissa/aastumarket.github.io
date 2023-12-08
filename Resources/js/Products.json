@@ -1,0 +1,79 @@
+[
+    {
+        "id": 1,
+        "name": "Predator",
+        "price": 50,
+        "image": "../../Resources/images/predator.png",
+        "description": "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum."
+    },
+    {
+        "id": 2,
+        "name": "Sun Chips",
+        "price": 50,
+        "image": "../../Resources/images/sunchips.png",
+        "description": "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum."
+    },
+    {
+        "id": 3,
+        "name": "Ambo Water",
+        "price": 300,
+        "image": "../../Resources/images/ambo-weha.png",
+        "description": "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum."
+    },
+    {
+        "id": 4,
+        "name": "Men's Shoes",
+        "price": 1500,
+        "image": "../../Resources/images/product2.png",
+        "description": "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum."
+    },
+    {
+        "id": 5,
+        "name": "Sun Chips",
+        "price": 50,
+        "image": "../../Resources/images/sunchips.png",
+        "description": "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum."
+    },
+    {
+        "id": 6,
+        "name": "Ambo Water",
+        "price": 300,
+        "image": "../../Resources/images/ambo-weha.png",
+        "description": "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum."
+    },
+    {
+        "id": 7,
+        "name": "Men's Shoes",
+        "price": 1500,
+        "image": "../../Resources/images/product2.png",
+        "description": "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum."
+    },
+    {
+        "id": 1,
+        "name": "Predator",
+        "price": 50,
+        "image": "../../Resources/images/predator.png",
+        "description": "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum."
+    },
+    {
+        "id": 2,
+        "name": "Sun Chips",
+        "price": 50,
+        "image": "../../Resources/images/sunchips.png",
+        "description": "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum."
+    },
+    {
+        "id": 3,
+        "name": "Ambo Water",
+        "price": 300,
+        "image": "../../Resources/images/ambo-weha.png",
+        "description": "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum."
+    },
+    {
+        "id": 4,
+        "name": "Men's Shoes",
+        "price": 1500,
+        "image": "../../Resources/images/product2.png",
+        "description": "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum."
+    }
+]
