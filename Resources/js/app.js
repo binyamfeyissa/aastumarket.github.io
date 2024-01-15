@@ -1,4 +1,4 @@
-let listProductHTML = document.querySelector('.listProduct');
+let listProductHTML = document.querySelector('.cartProduct');
 let listCartHTML = document.querySelector('.listCart');
 let iconCart = document.querySelector('.icon-cart');
 let iconCartSpan = document.querySelector('.icon-cart span');
