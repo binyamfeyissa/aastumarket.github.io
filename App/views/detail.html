@@ -129,17 +129,33 @@
 
 
         (products.filter(value => value.id != productId)).forEach(product => {
-            let newProduct = document.createElement('a');
-            // newProduct.href = '../../App/views/detail.html?id=' + product.id;
-            newProduct.classList.add('item');
-            newProduct.innerHTML = 
-            `<img src="${product.image}" alt="">
-            <h2><a href = '../../App/views/detail.html?id=${product.id}'>${product.name}</a></h2>
-            <div class="price">${product.price} Birr</div>
-            <button class="addCart">Add To Cart</button>`;
-            listProduct.appendChild(newProduct);
+            // let newProduct = document.createElement('a');
+            // // newProduct.href = '../../App/views/detail.html?id=' + product.id;
+            // newProduct.classList.add('item');
+            // newProduct.innerHTML = 
+            // `<img src="${product.image}" alt="">
+            // <h2><a href = '../../App/views/detail.html?id=${product.id}'>${product.name}</a></h2>
+            // <div class="price">${product.price} Birr</div>
+            // <button class="addCart">Add To Cart</button>`;
+            // listProduct.appendChild(newProduct);
+            let newProduct = document.createElement('div');
+                newProduct.dataset.id = product.id;
+                newProduct.classList.add('item');
+                newProduct.innerHTML = 
+                `<img src="${product.image}" alt="">
+                <h2><a href = '../../App/views/detail.html?id=${product.id}'>${product.name}</a></h2>
+                <div class="price">${product.price} Birr</div>
+                <button class="addCart">Add To Cart</button>`;
+                listProductHTML.appendChild(newProduct);
         });
     }
+        listProductHTML.addEventListener('click', (event) => {
+        let positionClick = event.target;
+        if(positionClick.classList.contains('addCart')){
+            let id_product = positionClick.parentElement.dataset.id;
+            addToCart(id_product);
+        }
+    })
 
     </script>
 </body>
