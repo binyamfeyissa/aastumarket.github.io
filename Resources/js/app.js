@@ -34,7 +34,7 @@ closeCart.addEventListener('click', () => {
             });
         }
     }
-    listProductHTML.addEventListener('click', (event) => {
+    listProduct.addEventListener('click', (event) => {
         let positionClick = event.target;
         if(positionClick.classList.contains('addCart')){
             let id_product = positionClick.parentElement.dataset.id;
