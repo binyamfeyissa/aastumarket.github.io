@@ -152,7 +152,6 @@
         });
     }
         listProduct.addEventListener('click', (event) => {
-            event.preventDefault();
         let positionClick = event.target;
         if(positionClick.classList.contains('addCart')){
             let id_product = positionClick.parentElement.dataset.id;
