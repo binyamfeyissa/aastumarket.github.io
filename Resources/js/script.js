@@ -17,7 +17,8 @@ function addDataToHTML(){
         newProduct.classList.add('item');
         newProduct.innerHTML = `<img src="${product.image}">
                 <h2>${product.name}</h2>
-                <div class="price">${product.price} Birr</div> `;
+                <div class="price">${product.price} Birr</div>
+                <button class="addCart">Add To Cart</button>`;
         
         // add this element in listProduct class
         listProducts.appendChild(newProduct);
