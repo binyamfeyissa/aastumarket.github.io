@@ -153,6 +153,7 @@
     }
         listProduct.addEventListener('click', (event) => {
         let positionClick = event.target;
+            console.log(positionClick);
         if(positionClick.classList.contains('addCart')){
             let id_product = positionClick.parentElement.dataset.id;
             addToCart(id_product);
