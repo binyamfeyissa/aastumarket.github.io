@@ -130,11 +130,11 @@
 
         (products.filter(value => value.id != productId)).forEach(product => {
             let newProduct = document.createElement('a');
-            newProduct.href = '../../App/views/detail.html?id=' + product.id;
+            // newProduct.href = '../../App/views/detail.html?id=' + product.id;
             newProduct.classList.add('item');
             newProduct.innerHTML = 
             `<img src="${product.image}" alt="">
-            <h2>${product.name}</h2>
+            <h2 href = '../../App/views/detail.html?id=${product.id}'>${product.name}</h2>
             <div class="price">${product.price} Birr</div>
             <button class="addCart">Add To Cart</button>`;
             listProduct.appendChild(newProduct);
