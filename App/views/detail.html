@@ -150,14 +150,15 @@
                 <button class="addCart">Add To Cart</button>`;
                 listProduct.appendChild(newProduct);
         });
-    }
-        listProduct.addEventListener('click', (event) => {
+            listProduct.addEventListener('click', (event) => {
         let positionClick = event.target;
         if(positionClick.classList.contains('addCart')){
             let id_product = positionClick.parentElement.dataset.id;
             addToCart(id_product);
         }
-    })
+    });
+    }
+        
 
     </script>
 </body>
