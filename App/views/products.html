@@ -273,7 +273,7 @@ function addDataToHTML5(){
         //     listProduct.appendChild(newProduct);
         //   });
 
-        listProduct.addEventListener("click", (event) => {
+        listProducts.addEventListener("click", (event) => {
           let positionClick = event.target;
           if (positionClick.classList.contains("addCart")) {
             let id_product = positionClick.parentElement.dataset.id;
