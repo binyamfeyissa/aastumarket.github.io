@@ -197,24 +197,20 @@ body.showCart .container {
         <footer>
             <p>Copyright @ AASTU ONLINE MARKET, All Rights reserved</p>
         </footer>
-        <script> // get datas from file json
-      fetch("../../Resources/js/Products.json")
-        .then((response) => response.json())
-        .then((data) => {
-          products = data;
-          showDetail();
-        });
+        <script> 
+            // get datas from file json
+      // fetch("../../Resources/js/Products.json")
+      //   .then((response) => response.json())
+      //   .then((data) => {
+      //     products = data;
+      //     showDetail();
+      //   });
 
       function showDetail() {
         //remove datas default from HTML
         let detail = document.querySelector(".detail");
         let listProduct = document.querySelector(".listProduct");
-        const topProductAddToCart = document.querySelector(
-          ".topProductAddToCart"
-        );
         const checkOut = document.querySelector(".checkOut");
-
-
         const checkOutBox = document.querySelector(".checkOutBox");
         const layOut = document.querySelector(".layOut");
         const btnCloseBox = document.querySelector(".btnCloseBox");
