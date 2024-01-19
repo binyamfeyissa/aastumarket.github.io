@@ -212,16 +212,14 @@ let listProducts = document.querySelector('.listProducts');
 function addDataToHTML5(){
     products.forEach(product => {
         //create new element item
-        let newProduct = document.createElement('a');
-        newProduct.href = '../../App/views/detail.html?id=' + product.id;
-        newProduct.classList.add('item');
-        newProduct.innerHTML = `<img src="${product.image}">
-                <h2>${product.name}</h2>
+        let newProduct = document.createElement("div");
+            newProduct.dataset.id = product.id;
+            newProduct.classList.add("item");
+            newProduct.innerHTML = `<img src="${product.image}" alt="">
+                <h2><a href = '../../App/views/detail.html?id=${product.id}'>${product.name}</a></h2>
                 <div class="price">${product.price} Birr</div>
                 <button class="addCart">Add To Cart</button>`;
-        
-        // add this element in listProduct class
-        listProducts.appendChild(newProduct);
+            listProduct.appendChild(newProduct);
     })
 }
 
