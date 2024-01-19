@@ -214,8 +214,6 @@ body.showCart .container {
         );
         const checkOut = document.querySelector(".checkOut");
 
-        let productId = new URLSearchParams(window.location.search).get("id");
-        let thisProduct = products.filter((value) => value.id == productId)[0];
 
         const checkOutBox = document.querySelector(".checkOutBox");
         const layOut = document.querySelector(".layOut");
@@ -233,17 +231,6 @@ body.showCart .container {
         //if there is no product with id = productId => return to home page
        
 
-        detail.querySelector(".image img").src = thisProduct.image;
-        detail.querySelector(".name").innerText = thisProduct.name;
-        detail.querySelector(".price").innerText = thisProduct.price + " Birr";
-        detail.querySelector(".description").innerText =
-          "$" + thisProduct.description;
-
-        topProductAddToCart.addEventListener("click", function (event) {
-          event.preventDefault();
-          const positionClick = event.target;
-          addToCart(productId);
-        });
 
         products
           .filter((value) => value.id != productId)
@@ -276,6 +263,7 @@ body.showCart .container {
           }
         });
       }</script>
+        <script src="../../Resources/js/script.js"></script>
         <script src="../../Resources/js/app.js"></script>
     </body>
 </html>
