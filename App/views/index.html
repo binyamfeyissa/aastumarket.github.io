@@ -250,7 +250,19 @@ document.getElementById('prev').onclick = function(){
                     // add this element in listProduct class
                     listProducts.appendChild(newProduct);
                 })
-            }
+            };
+		 const checkOutBox = document.querySelector(".checkOutBox");
+        const layOut = document.querySelector(".layOut");
+        const btnCloseBox = document.querySelector(".btnCloseBox");
+ btnCloseBox.addEventListener("click", function () {
+          layOut.classList.toggle("hidden");
+          checkOutBox.classList.toggle("hidden");
+        });
+        checkOut.addEventListener("click", function () {
+          layOut.classList.toggle("hidden");
+          checkOutBox.classList.toggle("hidden");
+        });
+
             
         </script>
 	    <script src="../../Resources/js/app.js"></script>
