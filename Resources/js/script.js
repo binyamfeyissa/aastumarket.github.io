@@ -1,5 +1,5 @@
 //get data from products.json
-let products = null;
+// let products = null;
 fetch('../../Resources/js/Products.json')
 .then(response => response.json())
 .then(data => {
