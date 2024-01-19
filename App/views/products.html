@@ -198,13 +198,37 @@ body.showCart .container {
             <p>Copyright @ AASTU ONLINE MARKET, All Rights reserved</p>
         </footer>
         <script> 
-            // get datas from file json
-      // fetch("../../Resources/js/Products.json")
-      //   .then((response) => response.json())
-      //   .then((data) => {
-      //     products = data;
-      //     showDetail();
-      //   });
+            //get data from products.json
+// let products = null;
+fetch('../../Resources/js/Products.json')
+.then(response => response.json())
+.then(data => {
+    products =data;
+    console.log(products);
+    addDataToHTML5();
+})
+//add the data product to html
+let listProducts = document.querySelector('.listProducts');
+function addDataToHTML5(){
+    products.forEach(product => {
+        //create new element item
+        let newProduct = document.createElement('a');
+        newProduct.href = '../../App/views/detail.html?id=' + product.id;
+        newProduct.classList.add('item');
+        newProduct.innerHTML = `<img src="${product.image}">
+                <h2>${product.name}</h2>
+                <div class="price">${product.price} Birr</div>
+                <button class="addCart">Add To Cart</button>`;
+        
+        // add this element in listProduct class
+        listProducts.appendChild(newProduct);
+    })
+}
+
+//slider
+
+//add product to slider
+
 
       function showDetail() {
         //remove datas default from HTML
@@ -259,7 +283,6 @@ body.showCart .container {
           }
         });
       }</script>
-        <script src="../../Resources/js/script.js"></script>
         <script src="../../Resources/js/app.js"></script>
     </body>
 </html>
