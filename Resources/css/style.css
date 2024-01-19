@@ -81,6 +81,7 @@ header {
 }
 .header .buttons span {
   background-color: #15151d;
+  color: #fff;
   width: 30px;
   height: 30px;
   display: flex;
