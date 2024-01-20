@@ -476,15 +476,15 @@ document.getElementById('prev').onclick = function(){
     const widthItem = document.querySelector('.item').offsetWidth;
     document.getElementById('slider').scrollLeft -= widthItem;
 }
-            // //get data from products.json
-            // // let products = null;
-            // fetch('../../Resources/js/Products.json')
-            // .then(response => response.json())
-            // .then(data => {
-            //     products =data;
-            //     console.log(products);
-            //     addDataToHTML();
-            // })
+            //get data from products.json
+            // let products = null;
+            fetch('../../Resources/js/Products.json')
+            .then(response => response.json())
+            .then(data => {
+                products =data;
+                console.log(products);
+                addDataToHTML5();
+            })
             //add the data product to html
             let listProducts = document.querySelector('.scrollProducts');
             function addDataToHTML5(){
@@ -501,7 +501,6 @@ document.getElementById('prev').onclick = function(){
                     listProducts.appendChild(newProduct);
                 })
             };
-		console.log(addDataToHTML5());
 		
             
         </script>
