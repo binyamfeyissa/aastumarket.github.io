@@ -174,91 +174,36 @@
 
     <script>
       // get datas from file json
-        fetch('../../Resources/js/Products.json')
-            .then(response => response.json())
-            .then(data => {
-                products = data;
-                showDetail();
-        })
-
-        function showDetail(){
-    // remove datas default from HTML
-        let detail = document.querySelector('.detail');
-        let listProductk = document.querySelector('.listProducts');
-        let productId =  new URLSearchParams(window.location.search).get('id');
-        let thisProduct = products.filter(value => value.id == productId)[0];
-        //if there is no product with id = productId => return to home page
-        if(!thisProduct){
-            window.location.href = "/";
-        }
- 
-        detail.querySelector('.image img').src = thisProduct.image;
-        detail.querySelector('.name').innerText = thisProduct.name;
-        detail.querySelector('.price').innerText = thisProduct.price + ' Birr';
-        detail.querySelector('.description').innerText = '$' + thisProduct.description;
-
-
-        (products.filter(value => value.id != productId)).forEach(product => {
-            // let newProduct = document.createElement('a');
-            // // newProduct.href = '../../App/views/detail.html?id=' + product.id;
-            // newProduct.classList.add('item');
-            // newProduct.innerHTML = 
-            // `<img src="${product.image}" alt="">
-            // <h2><a href = '../../App/views/detail.html?id=${product.id}'>${product.name}</a></h2>
-            // <div class="price">${product.price} Birr</div>
-            // <button class="addCart">Add To Cart</button>`;
-            // listProduct.appendChild(newProduct);
-
-            
-            let newProduct = document.createElement('div');
-                newProduct.dataset.id = product.id;
-                newProduct.classList.add('item');
-                newProduct.innerHTML = 
-                `<img src="${product.image}" alt="">
-                <h2><a href = '../../App/views/detail.html?id=${product.id}'>${product.name}</a></h2>
-                <div class="price">${product.price} Birr</div>
-                <button class="addCart">Add To Cart</button>`;
-                listProductk.appendChild(newProduct);
+      fetch("../../Resources/js/Products.json")
+        .then((response) => response.json())
+        .then((data) => {
+          products = data;
+          showDetail();
         });
-    }
-        listProduct.addEventListener('click', (event) => {
-        let positionClick = event.target;
-        if(positionClick.classList.contains('addCart')){
-            let id_product = positionClick.parentElement.dataset.id;
-            addToCart(id_product);
-        }
-    })
-//       // get datas from file json
-//       fetch("../../Resources/js/Products.json")
-//         .then((response) => response.json())
-//         .then((data) => {
-//           products = data;
-//           showDetail();
-//         });
 
-//       function showDetail() {
-//         //remove datas default from HTML
-//         let detail = document.querySelector(".detail");
-//         let listProductk = document.querySelector(".listProducts");
+      function showDetail() {
+        //remove datas default from HTML
+        let detail = document.querySelector(".detail");
+        let listProductk = document.querySelector(".listProducts");
         const topProductAddToCart = document.querySelector(
           ".topProductAddToCart"
         );
-//         const checkOut = document.querySelector(".checkOut");
+        
 
-//         let productId = new URLSearchParams(window.location.search).get("id");
-//         let thisProduct = products.filter((value) => value.id == productId)[0];
+        let productId = new URLSearchParams(window.location.search).get("id");
+        let thisProduct = products.filter((value) => value.id == productId)[0];
 
 
-//         //if there is no product with id = productId => return to home page
-//         if (!thisProduct) {
-//           window.location.href = "/";
-//         }
+        //if there is no product with id = productId => return to home page
+        if (!thisProduct) {
+          window.location.href = "/";
+        }
 
-//         detail.querySelector(".image img").src = thisProduct.image;
-//         detail.querySelector(".name").innerText = thisProduct.name;
-//         detail.querySelector(".price").innerText = thisProduct.price + " Birr";
-//         detail.querySelector(".description").innerText =
-//           "$" + thisProduct.description;
+        detail.querySelector(".image img").src = thisProduct.image;
+        detail.querySelector(".name").innerText = thisProduct.name;
+        detail.querySelector(".price").innerText = thisProduct.price + " Birr";
+        detail.querySelector(".description").innerText =
+          "$" + thisProduct.description;
 
         topProductAddToCart.addEventListener("click", function (event) {
           event.preventDefault();
@@ -266,18 +211,18 @@
           addToCart(productId);
         });
 
-//         products
-//           .filter((value) => value.id != productId)
-//           .forEach((product) => {
+        products
+          .filter((value) => value.id != productId)
+          .forEach((product) => {
 
-//             let newProduct = document.createElement("div");
-//             newProduct.dataset.id = product.id;
-//             newProduct.classList.add("item");
-//             newProduct.innerHTML = `<img src="${product.image}" alt="">
-//                 <h2><a href = '../../App/views/detail.html?id=${product.id}'>${product.name}</a></h2>
-//                 <div class="price">${product.price} Birr</div>`;
-//             listProductk.appendChild(newProduct);
-//           });
+            let newProduct = document.createElement("div");
+            newProduct.dataset.id = product.id;
+            newProduct.classList.add("item");
+            newProduct.innerHTML = `<img src="${product.image}" alt="">
+                <h2><a href = '../../App/views/detail.html?id=${product.id}'>${product.name}</a></h2>
+                <div class="price">${product.price} Birr</div>`;
+            listProductk.appendChild(newProduct);
+          });
 
        document.querySelector('.hamburger-menu').addEventListener('click', function() {
   // Create a new div to hold the navigation menu items
@@ -299,7 +244,7 @@
     document.querySelector('.menu').classList.remove('active');
     document.body.removeChild(navOverlay);
   });
-});
+})
 // document.querySelector('.hamburger-menu').addEventListener('click', function() {
 //   // Create a new div to hold the navigation menu items
 //   var navOverlay = document.createElement('div');
