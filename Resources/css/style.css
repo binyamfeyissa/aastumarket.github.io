@@ -308,9 +308,7 @@ header {
   .item {
     width: calc(33.3vw - 20px);
   }
-  .direction {
-    display: none;
-  }
+  
 }
 @media screen and (max-width: 768px) {
   .item {
