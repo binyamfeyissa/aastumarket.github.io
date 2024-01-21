@@ -118,25 +118,83 @@ body.showCart .container {
     grid-template-columns: repeat(2, 1fr);
   }
 }
+            
+@media only screen and (max-width: 768px) {
+  .menu {
+    display: none; /* Hide the navigation menu by default */
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+  }
+
+  .menu.active {
+    display: flex; /* Show the navigation menu when active */
+  }
+
+  .menu ul {
+    width: 100%;
+    text-align: center;
+  }
+
+  .menu li {
+    padding: 10px;
+  }
+
+  .hamburger-menu {
+    display: block; /* Show the hamburger menu icon */
+    cursor: pointer;
+  }
+
+  .hamburger-menu .bar {
+    width: 30px;
+    height: 3px;
+    background-color: #333;
+    margin: 6px 0;
+  }
+}
+      /* Your existing styles here */
+
+/* Add this CSS for the overlay */
+.nav-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgb(255 255 255 / 84%); /* Semi-transparent black overlay */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000; /* Ensure it appears above other elements */
+}
+
+.nav-overlay ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-overlay li {
+  padding: 10px;
+}
 
         </style>
     </head>
     <body>
         <header class="header">
-          <div class="logo">
-            <img src="../../Resources/images/logo-dark.png" alt="Logo">
-          </div>
-          <nav class="menu">
-            <ul>
-              <li><a href="./index.html">Home</a></li>
-              <li><a href="#">About</a></li>
-              <li><a href="./products.html">Products</a></li>
-              <li><a href="#">Services</a></li>
-              <li><a href="#">Contact</a></li>
-            </ul>
-          </nav>
-          <div class="buttons">
-              <div class="icon-cart">
+  <div class="logo">
+    <img src="../../Resources/images/logo-dark.png" alt="Logo" />
+  </div>
+  <nav class="menu">
+    <ul>
+      <li><a href="./index.html">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="./products.html">Products</a></li>
+      <li><a href="#">Services</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+  <div class="buttons">
+        <div class="icon-cart">
           <svg
             aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
@@ -153,9 +211,16 @@ body.showCart .container {
           </svg>
           <span>0</span>
         </div>
-            
-          </div>
-        </header>
+        
+      </div>
+    <div class="hamburger-menu">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
+  </div>
+</header>
+
           <div class="cartTab">
       <h1>Shopping Cart</h1>
       <div class="listCart"></div>
@@ -230,33 +295,6 @@ function addDataToHTML5(){
           checkOutBox.classList.toggle("hidden");
         });
 
-        //if there is no product with id = productId => return to home page
-       
-
-
-        // products
-        //   .filter((value) => value.id != productId)
-        //   .forEach((product) => {
-        //     // let newProduct = document.createElement('a');
-        //     // // newProduct.href = '../../App/views/detail.html?id=' + product.id;
-        //     // newProduct.classList.add('item');
-        //     // newProduct.innerHTML =
-        //     // `<img src="${product.image}" alt="">
-        //     // <h2><a href = '../../App/views/detail.html?id=${product.id}'>${product.name}</a></h2>
-        //     // <div class="price">${product.price} Birr</div>
-        //     // <button class="addCart">Add To Cart</button>`;
-        //     // listProduct.appendChild(newProduct);
-
-        //     let newProduct = document.createElement("div");
-        //     newProduct.dataset.id = product.id;
-        //     newProduct.classList.add("item");
-        //     newProduct.innerHTML = `<img src="${product.image}" alt="">
-        //         <h2><a href = '../../App/views/detail.html?id=${product.id}'>${product.name}</a></h2>
-        //         <div class="price">${product.price} Birr</div>
-        //         <button class="addCart">Add To Cart</button>`;
-        //     listProduct.appendChild(newProduct);
-        //   });
-
         listProducts.addEventListener("click", (event) => {
           let positionClick = event.target;
           if (positionClick.classList.contains("addCart")) {
@@ -264,6 +302,29 @@ function addDataToHTML5(){
             addToCart(id_product);
           }
         });
-      }</script>
+      }
+         document.querySelector('.hamburger-menu').addEventListener('click', function() {
+  // Create a new div to hold the navigation menu items
+  var navOverlay = document.createElement('div');
+  navOverlay.className = 'nav-overlay';
+
+  // Clone the existing navigation menu and append it to the new div
+  var clonedMenu = document.querySelector('.menu ul').cloneNode(true);
+  navOverlay.appendChild(clonedMenu);
+
+  // Append the new div to the body
+  document.body.appendChild(navOverlay);
+
+  // Toggle the 'active' class on the menu to show/hide it
+  document.querySelector('.menu').classList.toggle('active');
+
+  // Close the navigation menu when clicking outside of it
+  navOverlay.addEventListener('click', function() {
+    document.querySelector('.menu').classList.remove('active');
+    document.body.removeChild(navOverlay);
+  });
+});
+
+        </script>
     </body>
 </html>
