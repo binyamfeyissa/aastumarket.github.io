@@ -334,7 +334,7 @@ footer p {
 
 /* BLOG */
 
-.container {
+.containerb {
 	/* CHANGE TO GRID */
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
