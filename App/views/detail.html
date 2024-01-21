@@ -240,9 +240,9 @@
 //         //remove datas default from HTML
 //         let detail = document.querySelector(".detail");
 //         let listProductk = document.querySelector(".listProducts");
-//         const topProductAddToCart = document.querySelector(
-//           ".topProductAddToCart"
-//         );
+        const topProductAddToCart = document.querySelector(
+          ".topProductAddToCart"
+        );
 //         const checkOut = document.querySelector(".checkOut");
 
 //         let productId = new URLSearchParams(window.location.search).get("id");
@@ -260,11 +260,11 @@
 //         detail.querySelector(".description").innerText =
 //           "$" + thisProduct.description;
 
-//         topProductAddToCart.addEventListener("click", function (event) {
-//           event.preventDefault();
-//           const positionClick = event.target;
-//           addToCart(productId);
-//         });
+        topProductAddToCart.addEventListener("click", function (event) {
+          event.preventDefault();
+          const positionClick = event.target;
+          addToCart(productId);
+        });
 
 //         products
 //           .filter((value) => value.id != productId)
@@ -279,27 +279,27 @@
 //             listProductk.appendChild(newProduct);
 //           });
 
-// //        document.querySelector('.hamburger-menu').addEventListener('click', function() {
-// //   // Create a new div to hold the navigation menu items
-// //   var navOverlay = document.createElement('div');
-// //   navOverlay.className = 'nav-overlay';
+       document.querySelector('.hamburger-menu').addEventListener('click', function() {
+  // Create a new div to hold the navigation menu items
+  var navOverlay = document.createElement('div');
+  navOverlay.className = 'nav-overlay';
 
-// //   // Clone the existing navigation menu and append it to the new div
-// //   var clonedMenu = document.querySelector('.menu ul').cloneNode(true);
-// //   navOverlay.appendChild(clonedMenu);
+  // Clone the existing navigation menu and append it to the new div
+  var clonedMenu = document.querySelector('.menu ul').cloneNode(true);
+  navOverlay.appendChild(clonedMenu);
 
-// //   // Append the new div to the body
-// //   document.body.appendChild(navOverlay);
+  // Append the new div to the body
+  document.body.appendChild(navOverlay);
 
-// //   // Toggle the 'active' class on the menu to show/hide it
-// //   document.querySelector('.menu').classList.toggle('active');
+  // Toggle the 'active' class on the menu to show/hide it
+  document.querySelector('.menu').classList.toggle('active');
 
-// //   // Close the navigation menu when clicking outside of it
-// //   navOverlay.addEventListener('click', function() {
-// //     document.querySelector('.menu').classList.remove('active');
-// //     document.body.removeChild(navOverlay);
-// //   });
-// // });
+  // Close the navigation menu when clicking outside of it
+  navOverlay.addEventListener('click', function() {
+    document.querySelector('.menu').classList.remove('active');
+    document.body.removeChild(navOverlay);
+  });
+});
 // document.querySelector('.hamburger-menu').addEventListener('click', function() {
 //   // Create a new div to hold the navigation menu items
 //   var navOverlay = document.createElement('div');
