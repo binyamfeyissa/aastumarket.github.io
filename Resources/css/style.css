@@ -664,7 +664,7 @@ header {
 }
 
 @media (max-width: 940px) {
-	.container {
+	.containerb {
 		grid-template-columns: 1fr;
 	}
 }
@@ -672,22 +672,6 @@ header {
 
 /*features*/
 
-/* -------------------------------- 
-
-File#: _1_feature-v20
-Title: Feature v20
-Descr: A list of features with icons
-Usage: codyhouse.co/license
-
--------------------------------- */
-
-
-
-/* -------------------------------- 
-
-Icons 
-
--------------------------------- */
 
 .cd-icon {
   --size: 1em;
