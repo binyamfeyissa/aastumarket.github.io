@@ -13,7 +13,8 @@ body {
     rgba(217, 222, 228, 1) 100%
   );
 }
-
+.cartTab {
+    z-index: 20;}
 /* Basic styles for the header */
 header {
   display: flex;
