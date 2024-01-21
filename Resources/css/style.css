@@ -315,9 +315,7 @@ header {
   .item {
     width: calc(50vw - 20px);
   }
-  .direction {
-    display: none;
-  }
+  
 }
 
 
