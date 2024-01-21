@@ -130,14 +130,7 @@
       </div>
     </div>
     <script src="../../Resources/js/app.js"></script>
-    <!-- checkOut -->
-    <!-- checkOut -->
-    <!-- checkOut -->
-    <div class="layOut hidden">
-      <div class="checkOutBox hidden">
-        <button class="btnCloseBox">✖️</button>
-      </div>
-    </div>
+    
 
     <div class="container">
       <div class="title">PRODUCT DETAIL</div>
@@ -231,14 +224,6 @@
             listProductk.appendChild(newProduct);
           });
 
-        listProduct.addEventListener("click", (event) => {
-          let positionClick = event.target;
-          if (positionClick.classList.contains("addCart")) {
-            let id_product = positionClick.parentElement.dataset.id;
-            addToCart(id_product);
-          }
-        });
-      }
        document.querySelector('.hamburger-menu').addEventListener('click', function() {
   // Create a new div to hold the navigation menu items
   var navOverlay = document.createElement('div');
