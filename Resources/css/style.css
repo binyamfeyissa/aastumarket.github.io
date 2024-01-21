@@ -177,7 +177,7 @@ header {
   text-decoration: none;
 }
 .container {
-  width: 900px;
+  width: 100vw;
   margin: auto;
   padding-top: 10px;
   text-align: center;
@@ -187,6 +187,7 @@ header {
   padding: 20px 0;
 }
 .listProducts {
+	width:100%;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
