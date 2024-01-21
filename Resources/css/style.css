@@ -782,8 +782,6 @@ Utilities
 
 .cd-container {
   width: calc(100% - 3rem);
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .cd-max-width-sm {
