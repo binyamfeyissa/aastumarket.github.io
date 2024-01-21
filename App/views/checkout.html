@@ -171,11 +171,87 @@
         .products{
             width: 50%;
         }
-        
+        /* Your existing styles here */
+
+/* Add this CSS for responsiveness */
+@media only screen and (max-width: 768px) {
+  .menu {
+    display: none; /* Hide the navigation menu by default */
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+  }
+
+  .menu.active {
+    display: flex; /* Show the navigation menu when active */
+  }
+
+  .menu ul {
+    width: 100%;
+    text-align: center;
+  }
+
+  .menu li {
+    padding: 10px;
+  }
+
+  .hamburger-menu {
+    display: block; /* Show the hamburger menu icon */
+    cursor: pointer;
+  }
+
+  .hamburger-menu .bar {
+    width: 30px;
+    height: 3px;
+    background-color: #333;
+    margin: 6px 0;
+  }
+}
+
         </style>
     </head>
     <body>
 	    <header class="header">
+  <div class="logo">
+    <img src="../../Resources/images/logo-dark.png" alt="Logo" />
+  </div>
+  <nav class="menu">
+    <ul>
+      <li><a href="./index.html">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="./products.html">Products</a></li>
+      <li><a href="#">Services</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+  <div class="buttons">
+        <div class="icon-cart">
+          <svg
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 18 20"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 15a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm0 0h8m-8 0-1-4m9 4a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-9-4h10l2-7H3m2 7L3 4m0 0-.792-3H1"
+            />
+          </svg>
+          <span>0</span>
+        </div>
+        
+      </div>
+    <div class="hamburger-menu">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
+  </div>
+</header>
+
+<!-- 	    <header class="header">
       <div class="logo">
         <img src="../../Resources/images/logo-dark.png" alt="Logo" />
       </div>
@@ -208,7 +284,7 @@
         </div>
         
       </div>
-    </header>
+    </header> -->
 
     <div class="cartTab">
       <h1>Shopping Cart</h1>
@@ -308,7 +384,13 @@
     <button class="purchase--btn">Checkout</button>
 </form>
 </div>
-        <script src="../../Resources/js/app.js"></script> 
+        <script src="../../Resources/js/app.js"></script>
+	    <script>
+		    document.querySelector('.hamburger-menu').addEventListener('click', function() {
+  document.querySelector('.menu').classList.toggle('active');
+});
+
+	    </script>
        
         
     </body>
