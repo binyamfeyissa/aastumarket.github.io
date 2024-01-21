@@ -187,10 +187,11 @@ header {
   padding: 20px 0;
 }
 .listProducts {
-	width:100vw;
+	width:100%;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
+	    justify-items: center;
 }
 .listProducts .item img {
   width: 90%;
