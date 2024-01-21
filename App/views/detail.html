@@ -17,22 +17,82 @@
       type="text/css"
       href="../../Resources/css/style.css"
     />
+    <style>
+      @media only screen and (max-width: 768px) {
+  .menu {
+    display: none; /* Hide the navigation menu by default */
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+  }
+
+  .menu.active {
+    display: flex; /* Show the navigation menu when active */
+  }
+
+  .menu ul {
+    width: 100%;
+    text-align: center;
+  }
+
+  .menu li {
+    padding: 10px;
+  }
+
+  .hamburger-menu {
+    display: block; /* Show the hamburger menu icon */
+    cursor: pointer;
+  }
+
+  .hamburger-menu .bar {
+    width: 30px;
+    height: 3px;
+    background-color: #333;
+    margin: 6px 0;
+  }
+}
+      /* Your existing styles here */
+
+/* Add this CSS for the overlay */
+.nav-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgb(255 255 255 / 84%); /* Semi-transparent black overlay */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000; /* Ensure it appears above other elements */
+}
+
+.nav-overlay ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-overlay li {
+  padding: 10px;
+}
+
+    </style>
   </head>
   <body>
     <header class="header">
-      <div class="logo">
-        <img src="../../Resources/images/logo-dark.png" alt="Logo" />
-      </div>
-      <nav class="menu">
-        <ul>
-          <li><a href="./index.html">Home</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="./products.html">Products</a></li>
-          <li><a href="#">Services</a></li>
-          <li><a href="#">Contact</a></li>
-        </ul>
-      </nav>
-      <div class="buttons">
+  <div class="logo">
+    <img src="../../Resources/images/logo-dark.png" alt="Logo" />
+  </div>
+  <nav class="menu">
+    <ul>
+      <li><a href="./index.html">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="./products.html">Products</a></li>
+      <li><a href="#">Services</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+  <div class="buttons">
         <div class="icon-cart">
           <svg
             aria-hidden="true"
@@ -52,7 +112,14 @@
         </div>
         
       </div>
-    </header>
+    <div class="hamburger-menu">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
+  </div>
+</header>
+
 
     <div class="cartTab">
       <h1>Shopping Cart</h1>
@@ -193,6 +260,28 @@
           }
         });
       }
+       document.querySelector('.hamburger-menu').addEventListener('click', function() {
+  // Create a new div to hold the navigation menu items
+  var navOverlay = document.createElement('div');
+  navOverlay.className = 'nav-overlay';
+
+  // Clone the existing navigation menu and append it to the new div
+  var clonedMenu = document.querySelector('.menu ul').cloneNode(true);
+  navOverlay.appendChild(clonedMenu);
+
+  // Append the new div to the body
+  document.body.appendChild(navOverlay);
+
+  // Toggle the 'active' class on the menu to show/hide it
+  document.querySelector('.menu').classList.toggle('active');
+
+  // Close the navigation menu when clicking outside of it
+  navOverlay.addEventListener('click', function() {
+    document.querySelector('.menu').classList.remove('active');
+    document.body.removeChild(navOverlay);
+  });
+});
+
     </script>
   </body>
 </html>
