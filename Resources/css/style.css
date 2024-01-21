@@ -167,6 +167,7 @@ header {
   }
   .hero {
     flex-direction: column;
+	  height: 100%;
   }
 }
 
