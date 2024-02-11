@@ -1,11 +1,8 @@
 # [CLICK HERE TO SEE WEBSITE](https://binyamfeyissa.github.io/aastumarket.github.io/App/views/index.html)
-Online market website for AASTU
 
-Title: AASTU ONLINE MARKET
-
-Group: 4
-
-Group Members:
+# Title: AASTU ONLINE MARKET
+# Group: 4
+# Group Members:
 ------------------------------------------------------------------------------------------------------
 Name                                              |   Id
 ------------------------------------------------------------------------------------------------------
