@@ -1,5 +1,9 @@
+<?php
+session_start();
+?>
+
 <html lang="en">
-    <head>
+  <head>
     <meta charset="UTF-8"> 
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
@@ -11,179 +15,182 @@
 	<title>AASTU ONLINE MARKET</title> 
         <link rel="stylesheet" type="text/css" href="../../Resources/css/style.css">
         <link rel="stylesheet" type="text/css" href="../../Resources/css/output.css">
-	    <style>
+        <script src="https://kit.fontawesome.com/ee4b6626a1.js" crossorigin="anonymous"></script>
+	<style>
             
-/* cart */
-.cartTab {
-  width: 400px;
-  background-color: #353432;
-  color: #eee;
-  position: fixed;
-  top: 0;
-  right: -400px;
-  bottom: 0;
-  display: grid;
-  grid-template-rows: 70px 1fr 70px;
-  transition: 0.5s;
-}
-body.showCart .cartTab {
-  right: 0;
-}
-body.showCart .container {
-  transform: translateX(-250px);
-}
-.cartTab h1 {
-  padding: 20px;
-  margin: 0;
-  font-weight: 300;
-}
-.cartTab .btn {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-}
-.cartTab button {
-  background-color: #e8bc0e;
-  border: none;
-  font-family: Poppins;
-  font-weight: 500;
-  cursor: pointer;
-}
-.cartTab .close {
-  background-color: #eee;
-}
-.listCart .item img {
-  width: 100%;
-}
-.listCart .item {
-  display: grid;
-  grid-template-columns: 70px 150px 50px 1fr;
-  gap: 10px;
-  text-align: center;
-  align-items: center;
-}
-.listCart .quantity span {
-  display: inline-block;
-  width: 25px;
-  height: 25px;
-  background-color: #eee;
-  border-radius: 50%;
-  color: #555;
-  cursor: pointer;
-}
-.listCart .quantity span:nth-child(2) {
-  background-color: transparent;
-  color: #eee;
-  cursor: auto;
-}
-.listCart .item:nth-child(even) {
-  background-color: #eee1;
-}
-.listCart {
-  overflow: auto;
-}
-.listCart::-webkit-scrollbar {
-  width: 0;
-}
+            /* cart */
+            .cartTab {
+              width: 400px;
+              background-color: #353432;
+              color: #eee;
+              position: fixed;
+              top: 0;
+              right: -400px;
+              bottom: 0;
+              display: grid;
+              grid-template-rows: 70px 1fr 70px;
+              transition: 0.5s;
+            }
+            body.showCart .cartTab {
+              right: 0;
+            }
+            body.showCart .container {
+              transform: translateX(-250px);
+            }
+            .cartTab h1 {
+              padding: 20px;
+              margin: 0;
+              font-weight: 300;
+            }
+            .cartTab .btn {
+              display: grid;
+              grid-template-columns: repeat(2, 1fr);
+            }
+            .cartTab button {
+              background-color: #e8bc0e;
+              border: none;
+              font-family: Poppins;
+              font-weight: 500;
+              cursor: pointer;
+            }
+            .cartTab .close {
+              background-color: #eee;
+            }
+            .listCart .item img {
+              width: 100%;
+            }
+            .listCart .item {
+              display: grid;
+              grid-template-columns: 70px 150px 50px 1fr;
+              gap: 10px;
+              text-align: center;
+              align-items: center;
+            }
+            .listCart .quantity span {
+              display: inline-block;
+              width: 25px;
+              height: 25px;
+              background-color: #eee;
+              border-radius: 50%;
+              color: #555;
+              cursor: pointer;
+            }
+            .listCart .quantity span:nth-child(2) {
+              background-color: transparent;
+              color: #eee;
+              cursor: auto;
+            }
+            .listCart .item:nth-child(even) {
+              background-color: #eee1;
+            }
+            .listCart {
+              overflow: auto;
+            }
+            .listCart::-webkit-scrollbar {
+              width: 0;
+            }
 
-/*layot check out*/
+            /*layot check out*/
 
-.layOut {
-  background-color: rgba(255, 0, 0, 0.295);
-  width: 100%;
-  top: 0;
-  backdrop-filter: blur(5px);
-  position: fixed;
-  height: 100%;
-  z-index: 3;
-}
-.checkOutBox {
-  background-color: green;
-  width: 700px;
-  height: 500px;
-  position: absolute;
-  right: 30%;
-  top: 30%;
-  z-index: 5;
-}
-.hidden {
-  display: none;
-}
+            .layOut {
+              background-color: rgba(255, 0, 0, 0.295);
+              width: 100%;
+              top: 0;
+              backdrop-filter: blur(5px);
+              position: fixed;
+              height: 100%;
+              z-index: 3;
+            }
+            .checkOutBox {
+              background-color: green;
+              width: 700px;
+              height: 500px;
+              position: absolute;
+              right: 30%;
+              top: 30%;
+              z-index: 5;
+            }
+            .hidden {
+              display: none;
+            }
 
-@media only screen and (max-width: 992px) {
-  .listProduct {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
+            @media only screen and (max-width: 992px) {
+              .listProduct {
+                grid-template-columns: repeat(3, 1fr);
+              }
+            }
 
-/* mobile */
-@media only screen and (max-width: 768px) {
-  .listProduct {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-		    @media only screen and (max-width: 768px) {
-  .menu {
-    display: none; /* Hide the navigation menu by default */
-    flex-direction: column; /* Stack items vertically */
-    align-items: center; /* Center items horizontally */
-  }
+            /* mobile */
+            @media only screen and (max-width: 768px) {
+              .listProduct {
+                grid-template-columns: repeat(2, 1fr);
+              }
+            }
+                    @media only screen and (max-width: 768px) {
+              .menu {
+                display: none; /* Hide the navigation menu by default */
+                flex-direction: column; /* Stack items vertically */
+                align-items: center; /* Center items horizontally */
+              }
 
-  .menu.active {
-    display: flex; /* Show the navigation menu when active */
-  }
+              .menu.active {
+                display: flex; /* Show the navigation menu when active */
+              }
 
-  .menu ul {
-    width: 100%;
-    text-align: center;
-  }
+              .menu ul {
+                width: 100%;
+                text-align: center;
+              }
 
-  .menu li {
-    padding: 10px;
-  }
+              .menu li {
+                padding: 10px;
+              }
 
-  .hamburger-menu {
-    display: block; /* Show the hamburger menu icon */
-    cursor: pointer;
-  }
+              .hamburger-menu {
+                display: block; /* Show the hamburger menu icon */
+                cursor: pointer;
+              }
 
-  .hamburger-menu .bar {
-    width: 30px;
-    height: 3px;
-    background-color: #333;
-    margin: 6px 0;
-  }
-}
-      /* Your existing styles here */
+              .hamburger-menu .bar {
+                width: 30px;
+                height: 3px;
+                background-color: #333;
+                margin: 6px 0;
+              }
+            }
+                  /* Your existing styles here */
 
-/* Add this CSS for the overlay */
-.nav-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgb(255 255 255 / 84%); /* Semi-transparent black overlay */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000; /* Ensure it appears above other elements */
-}
+            /* Add this CSS for the overlay */
+            .nav-overlay {
+              position: fixed;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              background: rgb(255 255 255 / 84%); /* Semi-transparent black overlay */
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              z-index: 1000; /* Ensure it appears above other elements */
+            }
 
-.nav-overlay ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
+            .nav-overlay ul {
+              list-style: none;
+              padding: 0;
+              margin: 0;
+            }
 
-.nav-overlay li {
-  padding: 10px;
-}
+            .nav-overlay li {
+              padding: 10px;
+            }
 
 		    
 
-        </style>
-    </head>
-    <body>
+  </style>
+
+  </head>
+
+  <body>
 
       <!-- Main page header -->
     <header class="header">
@@ -192,7 +199,7 @@ body.showCart .container {
       </div>
 
       <!-- NavBar -->
-      <nav class="menu relative">
+      <nav class="menu ">
         <ul>
           <li><a href="./index.html">Home</a></li>
           <li><a href="./about.html">About</a></li>
@@ -200,16 +207,19 @@ body.showCart .container {
           <li><a href="./blogs.html">Blogs</a></li>
           <li><a href="./contact.html">Contact</a></li>
 
-          <div class="absolute flex flex-row">
-            <li><Button class="">Signup</Button></li>
-            <li><Button class="">Login</Button></li>
-          </div>
+
 
         </ul>
       </nav>
 
 
-        <div class="buttons">
+      <!-- conditional rendering based on user status -->
+      <?php
+      // Check if the user is logged in
+      if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
+          // Display content for logged-in users
+          echo '<div class="buttons">
+          <a href="logout.php" class="p-3 bg-black text-white rounded-lg hover:bg-[#e0e0e0] hover:outline hover:outline-1 hover:text-black transition-all duration-300 cursor-pointer">Log Out <i class="fa-solid fa-arrow-right-from-bracket fa-rotate-180 ml-3"></i></a>
           <div class="icon-cart">
             <svg
               aria-hidden="true"
@@ -228,7 +238,16 @@ body.showCart .container {
             <span>0</span>
           </div>
           
-        </div>
+        </div>';
+      } else {
+          // Display content for non-registered users
+          
+          echo '<div class="flex gap-3 flex-row">
+                  <li><a href="signup.php" class="p-3 bg-black text-white rounded-lg hover:bg-[#e0e0e0] hover:outline hover:outline-1 hover:text-black transition-all duration-300 cursor-pointer">Signup</a></li>
+                  <li><a href="login.php" class="p-3 hover:bg-black hover:text-white rounded-lg bg-[#e0e0e0] outline outline-1 text-black transition-all duration-300 cursor-pointer">Login</a></li>
+                </div>';
+      }
+      ?> 
         
         <!-- Hamburger menu for mobiles -->
         <div class="hamburger-menu">
@@ -249,14 +268,28 @@ body.showCart .container {
       </div>
     </div>
     <script src="../../Resources/js/app.js"></script>
-        <section class="hero mx-auto" style="max-width: 1200px; margin: 0 auto;">
+        <section class="hero mx-auto " style="max-width: 1200px; margin: 0 auto; padding: 0 25px;">
             <div class="hero-text-div">
                 
                 <h1>Discover the tools you need to thrive in the classroom and beyond</h1>
                 <p class="hero-p">Shop with confidence knowing you're getting the best quality products. And Everything you need to succeed, delivered to your dorm doorstep.</p>
                 <div class="hero-btn-div">
                     <a href="#" class="btn">Shop Now</a>
-                    <a href="#" class="btn">About us</a>
+
+
+                    <!-- conditional rendering based on user status-->
+                    <?php
+                    // Check if the user is logged in
+                    if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
+                        // Display content for logged-in users
+                        echo '<a href="#" class="p-3 rounded-full outline outline-1 px-12 hover:px-16 transition-all duration-300">LogIn</a>';
+                    } else {
+                        // Display content for non-registered users
+                        echo '<a href="#" class="p-3 rounded-full outline outline-1 px-12 hover:px-16 transition-all duration-300">Signup</a>';
+                    }
+                    ?>
+
+
                 </div>
             </div>
             <div class="hero-img-div">
@@ -518,7 +551,7 @@ document.getElementById('prev').onclick = function(){
                 products.forEach(product => {
                     //create new element item
                     let newProduct = document.createElement('a');
-                    newProduct.href = '../../App/views/detail.html?id=' + product.id;
+                    newProduct.href = '../../App/views/detail.php?id=' + product.id;
                     newProduct.classList.add('item');
                     newProduct.innerHTML = `<img src="${product.image}">
                             <h2>${product.name}</h2>
