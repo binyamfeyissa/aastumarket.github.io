@@ -3,8 +3,6 @@ session_start();
 require 'db.php';
   $sql = "SELECT * FROM products";
   $result = $conn->query($sql);
-  
-
 ?>
 
 <html lang="en">
@@ -280,8 +278,8 @@ require 'db.php';
             <div class="title">Products</div>
             <!-- search bar for products -->
          
-            <form action="" class="relative">
-              <input type="search" name="" id="" class="rounded-full w-1/2 max-w-md p-3 pl-7 focus:outline-1 focus:outline-none  shadow-2xl mb-5" placeholder="search a product..."  >
+            <form action="search.php" class="relative" method="GET">
+              <input type="search" name="search" id="" class="rounded-full w-1/2 max-w-md p-3 pl-7 focus:outline-1 focus:outline-none  shadow-2xl mb-5" placeholder="search a product..."  >
               <button type="submit" class=" hover:cursor-pointer  bg-black p-3 rounded-full text-white ml-3 hover:outline-1 hover:outline hover:text-black hover:bg-transparent">
                 <i class="fa-solid fa-magnifying-glass  "></i>
               </button>
