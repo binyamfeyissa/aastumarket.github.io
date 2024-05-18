@@ -1,5 +1,8 @@
 <?php
-session_start();
+require 'db.php';
+$sql = "SELECT * FROM products";
+$result = $conn->query($sql);
+?>
 ?>
 
 <html lang="en">
@@ -15,7 +18,7 @@ session_start();
 	<title>AASTU ONLINE MARKET</title> 
         <link rel="stylesheet" type="text/css" href="../../Resources/css/style.css">
         <link rel="stylesheet" type="text/css" href="../../Resources/css/output.css">
-        <script src="https://kit.fontawesome.com/ee4b6626a1.js" crossorigin="anonymous"></script>
+        <script src="https://kit.fontawesome.com/ee4b6626a1.js" crossorigin="anonymous" defer></script>
 	<style>
             
             /* cart */
@@ -201,9 +204,9 @@ session_start();
       <!-- NavBar -->
       <nav class="menu ">
         <ul>
-          <li><a href="./index.html">Home</a></li>
+          <li><a href="./index.php">Home</a></li>
           <li><a href="./about.html">About</a></li>
-          <li><a href="./products.html">Products</a></li>
+          <li><a href="./products.php">Products</a></li>
           <li><a href="./blogs.html">Blogs</a></li>
           <li><a href="./contact.html">Contact</a></li>
 
@@ -380,7 +383,13 @@ session_start();
         <div class="title"><h2>PRODUCT TITLE</h2></div>
         <div class="slider" id="slider">
                 <div class="scrollProducts">
-
+                    <?php while ($row = $result->fetch_assoc()){?>
+                      <a href="detail.php?id=<?php echo $row['id']; ?>" class="item">
+                          <img src="./admin/<?php echo htmlspecialchars($row['imagepath']) ?>">
+                          <h2><?php echo htmlspecialchars($row['name']); ?></h2>
+                          <div class="price"><?php echo htmlspecialchars($row['price']); ?> Birr</div>
+                      </a>
+                    <?php } ?>
                 </div>
         </div>
         <div class="direction">
@@ -527,64 +536,7 @@ session_start();
     </div>
   </div>
 </footer>
-        <script>
-            document.getElementById('next').onclick = function(){
-    const widthItem = document.querySelector('.item').offsetWidth;
-    document.getElementById('slider').scrollLeft += widthItem;
-}
-document.getElementById('prev').onclick = function(){
-    const widthItem = document.querySelector('.item').offsetWidth;
-    document.getElementById('slider').scrollLeft -= widthItem;
-}
-            //get data from products.json
-            // let products = null;
-            fetch('../../Resources/js/Products.json')
-            .then(response => response.json())
-            .then(data => {
-                products =data;
-                console.log(products);
-                addDataToHTML5();
-            })
-            //add the data product to html
-            let listProducts = document.querySelector('.scrollProducts');
-            function addDataToHTML5(){
-                products.forEach(product => {
-                    //create new element item
-                    let newProduct = document.createElement('a');
-                    newProduct.href = '../../App/views/detail.php?id=' + product.id;
-                    newProduct.classList.add('item');
-                    newProduct.innerHTML = `<img src="${product.image}">
-                            <h2>${product.name}</h2>
-                            <div class="price">${product.price} Birr</div> `;
 
-                    // add this element in listProduct class
-                    listProducts.appendChild(newProduct);
-                })
-            };
-		 document.querySelector('.hamburger-menu').addEventListener('click', function() {
-  // Create a new div to hold the navigation menu items
-  var navOverlay = document.createElement('div');
-  navOverlay.className = 'nav-overlay';
-
-  // Clone the existing navigation menu and append it to the new div
-  var clonedMenu = document.querySelector('.menu ul').cloneNode(true);
-  navOverlay.appendChild(clonedMenu);
-
-  // Append the new div to the body
-  document.body.appendChild(navOverlay);
-
-  // Toggle the 'active' class on the menu to show/hide it
-  document.querySelector('.menu').classList.toggle('active');
-
-  // Close the navigation menu when clicking outside of it
-  navOverlay.addEventListener('click', function() {
-    document.querySelector('.menu').classList.remove('active');
-    document.body.removeChild(navOverlay);
-  });
-});
-
-            
-        </script>
         
     </body>
 </html>

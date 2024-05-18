@@ -1,3 +1,40 @@
+<?php
+session_start();
+require 'db.php';
+
+$sql = "SELECT * FROM products";
+$result2 = $conn->query($sql);
+
+function sanitizeInput($input) {
+  $input = trim($input);
+  $input = stripslashes($input);
+  $input = htmlspecialchars($input);
+  return $input;
+}
+
+// Check if product ID is provided
+if (!isset($_GET['id'])) {
+  header('Location: index.php');
+  exit;
+}
+
+$id = intval($_GET['id']);
+$sql = "SELECT * FROM products WHERE id = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("i", $id);
+$stmt->execute();
+
+$result = $stmt->get_result();
+
+if ($result->num_rows === 0) {
+    header('Location: index.php');
+    exit;
+}
+$product = $result->fetch_assoc();
+
+
+?>
+
 
 <html>
   <head>
@@ -84,20 +121,22 @@
 
   </head>
   <body class="font-roboto">
-    <header class="header font-roboto">
+    <header class="header">
       <div class="logo">
         <img src="../../Resources/images/logo-dark.png" alt="Logo" />
-        
       </div>
 
       <!-- NavBar -->
-      <nav class="menu font-roboto">
+      <nav class="menu ">
         <ul>
-          <li><a href="./index.html">Home</a></li>
+          <li><a href="./index.php">Home</a></li>
           <li><a href="./about.html">About</a></li>
-          <li><a href="./products.html">Products</a></li>
+          <li><a href="./products.php">Products</a></li>
           <li><a href="./blogs.html">Blogs</a></li>
           <li><a href="./contact.html">Contact</a></li>
+
+
+
         </ul>
       </nav>
 
@@ -108,6 +147,7 @@
       if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
           // Display content for logged-in users
           echo '<div class="buttons">
+          <a href="logout.php" class="p-3 bg-black text-white rounded-lg hover:bg-[#e0e0e0] hover:outline hover:outline-1 hover:text-black transition-all duration-300 cursor-pointer">Log Out <i class="fa-solid fa-arrow-right-from-bracket fa-rotate-180 ml-3"></i></a>
           <div class="icon-cart">
             <svg
               aria-hidden="true"
@@ -135,7 +175,7 @@
                   <li><a href="login.php" class="p-3 hover:bg-black hover:text-white rounded-lg bg-[#e0e0e0] outline outline-1 text-black transition-all duration-300 cursor-pointer">Login</a></li>
                 </div>';
       }
-      ?>  
+      ?> 
         
         <!-- Hamburger menu for mobiles -->
         <div class="hamburger-menu">
@@ -163,41 +203,52 @@
       <div class="title">PRODUCT DETAIL</div>
       <div class="detail">
         <div class="image">
-          <img src="" />
+          <img src="./admin/<?php echo htmlspecialchars($product['imagepath']) ?>" />
         </div>
-        <div class="content">
-          <h1 class="name"></h1>
-          <div class="price"></div>
-          <div class="buttons">
-            <button><a href="checkout.html">Check Out</a></button>
-            
-            <button class="topProductAddToCart">
-              Add To Cart
-              <span>
-                <svg
-                  class=""
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 18 20"
-                >
-                  <path
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M6 15a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm0 0h8m-8 0-1-4m9 4a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-9-4h10l2-7H3m2 7L3 4m0 0-.792-3H1"
-                  />
-                </svg>
-              </span>
-            </button>
+        <?php ?>
+            <div class="content">
+            <h1 class="name"><?php echo htmlspecialchars($product['name']); ?></h1>
+            <div class="price"><?php echo htmlspecialchars($product['price']); ?> Birr</div>
+            <div class="buttons">
+              <button><a href="checkout.html">Check Out</a></button>
+              
+              <button class="topProductAddToCart">
+                Add To Cart
+                <span>
+                  <svg
+                    class=""
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 18 20"
+                  >
+                    <path
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M6 15a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm0 0h8m-8 0-1-4m9 4a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-9-4h10l2-7H3m2 7L3 4m0 0-.792-3H1"
+                    />
+                  </svg>
+                </span>
+              </button>
+            </div>
+            <div class="description"><?php echo htmlspecialchars($product['description']); ?></div>
           </div>
-          <div class="description"></div>
-        </div>
+        <?php ?>
+
       </div>
 
       <div class="title">Similar product</div>
-      <div class="listProducts"></div>
+      <div class="listProducts">
+        <?php while ($row = $result2->fetch_assoc()){?>
+            <a href="detail.php?id=<?php echo $row['id']; ?>" class="item">
+                <img src="./admin/<?php echo htmlspecialchars($row['imagepath']) ?>">
+                <h2><?php echo htmlspecialchars($row['name']); ?></h2>
+                <div class="price"><?php echo htmlspecialchars($row['price']); ?> Birr</div>
+            </a>
+          <?php } ?>
+      </div>
     </div>
 
     <script>fetch("../../Resources/js/Products.json")
@@ -216,20 +267,20 @@
         );
         const checkOut = document.querySelector(".checkOut");
 
-        let productId = new URLSearchParams(window.location.search).get("id");
-        let thisProduct = products.filter((value) => value.id == productId)[0];
+        // let productId = new URLSearchParams(window.location.search).get("id");
+        // let thisProduct = products.filter((value) => value.id == productId)[0];
 
 
-        //if there is no product with id = productId => return to home page
-        if (!thisProduct) {
-          window.location.href = "/";
-        }
+        // //if there is no product with id = productId => return to home page
+        // if (!thisProduct) {
+        //   window.location.href = "/";
+        // }
 
-        detail.querySelector(".image img").src = thisProduct.image;
-        detail.querySelector(".name").innerText = thisProduct.name;
-        detail.querySelector(".price").innerText = thisProduct.price + " Birr";
-        detail.querySelector(".description").innerText =
-          "$" + thisProduct.description;
+        // detail.querySelector(".image img").src = thisProduct.image;
+        // detail.querySelector(".name").innerText = thisProduct.name;
+        // detail.querySelector(".price").innerText = thisProduct.price + " Birr";
+        // detail.querySelector(".description").innerText =
+        //   "$" + thisProduct.description;
 
         topProductAddToCart.addEventListener("click", function (event) {
           event.preventDefault();

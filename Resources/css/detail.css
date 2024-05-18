@@ -1,7 +1,7 @@
-* {
+/* * {
   font: poppins;
   font-family: poppins;
-}
+} */
 body {
   /* max-width: 1200px;
   margin-left: auto;
@@ -75,7 +75,7 @@ header {
 
   padding: 10px 10px;
   border-radius: 100px;
-  font-family: Poppins;
+  /* font-family: Poppins; */
   font-size: medium;
 }
 .header .buttons svg {
