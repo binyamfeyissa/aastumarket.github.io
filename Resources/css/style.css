@@ -1,12 +1,6 @@
-* {
-  font-family: "Montserrat";
-	 list-style-type: none;
-}
+
 body {
-  /* max-width:1200px;
-    margin-left:auto;
-    margin-right:auto; */
-  background: rgb(229, 211, 211);
+  background: #e5d3d3;
   background: radial-gradient(
     circle,
     rgba(229, 211, 211, 1) 0%,
@@ -831,3 +825,8 @@ Utilities
 .cd-text-center {
   text-align: center;
 }
+
+
+
+
+

@@ -1,7 +1,7 @@
 [
     {
         "id": 1,
-        "name": "Predator",
+        "name": "Predator Drink",
         "price": 50,
         "image": "../../Resources/images/predator.png",
         "description": "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum."
@@ -50,7 +50,7 @@
     },
     {
         "id": 1,
-        "name": "Predator",
+        "name": "Predator Drink",
         "price": 50,
         "image": "../../Resources/images/predator.png",
         "description": "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum."
